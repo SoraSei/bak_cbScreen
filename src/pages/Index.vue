@@ -292,7 +292,7 @@ export default {
     Close () { this.socket.close() }
   },
   created () {
-    this.ajaxform('chronic/cbScreenData/getNettyWebSocketServer').then(res => {
+    this.ajaxform('/chronic/cbScreenData/getNettyWebSocketServer').then(res => {
       if (res.retcode === '0000') {
         try {
           this.socket = new WebSocket(res.body)
