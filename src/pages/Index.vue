@@ -218,7 +218,7 @@ export default {
       ],
       list2: [
         { img: require('../assets/pic_woman_1.png'), name: '汪方', type: '在班', tel: '13277159293' },
-        { img: require('../assets/pic_woman_2.png'), name: '黄丹', type: '在班', tel: '15872767618' }
+        { img: require('../assets/pic_woman_2.png'), name: '黄丹', type: '在班', tel: '15271303299' }
       ],
       sos: [
         { name: '李金哲', val: 130, add: '新世界百货小区', tel: '17238747745', time: '2018.07.09 17:27', state: 0 },
@@ -404,6 +404,16 @@ export default {
     })
   },
   mounted () {
+    if (this.timer) {
+      clearInterval(this.timer)
+    } else {
+      this.timer = setInterval(function () {
+        location.reload()
+      }, 10000)
+    }
+  },
+  beforeDestory () {
+    clearInterval(this.timer)
   },
   watch: {
   }
