@@ -258,6 +258,7 @@ export default {
     },
     showDialog2 () {
       this.dialog2 = true
+      clearInterval(this.timer)
       this.ajaxform('/chronic/cbScreenData/selectSOSList').then(res => {
         if (res.retcode === '0000') {
           console.log('sos列表')
@@ -286,6 +287,7 @@ export default {
       let data = eval('(' + evt.data + ')')
       this.sosnew = data
       this.dialog1 = true
+      clearInterval(this.timer)
     },
     sClose (e) { console.log('connect closed:' + e.code) },
     Send () { this.socket.send('send message!') },
@@ -416,6 +418,8 @@ export default {
     clearInterval(this.timer)
   },
   watch: {
+    dialog1: {},
+    dialog2: {}
   }
 }
 </script>
