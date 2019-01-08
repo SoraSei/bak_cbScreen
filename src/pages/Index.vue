@@ -1,6 +1,6 @@
 <template>
   <div style="height:100%;">
-    <div class="top_title"><img src="../assets/pic_logo.png"/>爱康智慧养老管理系统</div>
+    <div class="top_title"><img src="../assets/pic_logo.png"/>爱康智慧养老管理系统<router-link to="/list" class="right3">查看全部用户信息 ></router-link></div>
     <div class="br"></div>
     <div class="main1">
       <div class="left1">
@@ -421,10 +421,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.top_title { background-image: url(../assets/bg_title.png); background-size: 100% 100%; background-repeat: no-repeat; width: 100%; height: 12%; line-height: 2.75; text-align: center; color: @akcolor_02; font-size: 2em;
-  img { width: 1.5em; height: 1.5em; margin-right: .5em; vertical-align: -.3em }
-}
-.br { height: 2%; width: 100% }
 .main1 { margin: 0 2%; width: 96%; height: 48%;
   .left1 { width: 74.2%; height: 100%; margin-right: 1.6%; vertical-align: top; display: inline-block;
     .br { height: 4% }

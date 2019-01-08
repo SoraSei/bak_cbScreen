@@ -9,6 +9,8 @@ import { TransferDom, ToastPlugin, XDialog, VChart } from 'vux'
 import App from './App'
 import Index from './pages/Index'
 import Index0 from './pages/Index_0'
+import List from './pages/List'
+import Detail from './pages/Detail'
 
 Vue.use(VueRouter)
 Vue.use(ToastPlugin)
@@ -19,6 +21,12 @@ const routes = [{
 }, {
   path: '/0',
   component: Index0
+}, {
+  path: '/list',
+  component: List
+}, {
+  path: '/detail',
+  component: Detail
 }]
 
 const router = new VueRouter({

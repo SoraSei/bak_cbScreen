@@ -7,11 +7,7 @@
 
 <script>
 export default {
-  props: {
-    name: String,
-    val: Number,
-    after: String
-  }
+  props: { name: String, val: Number, after: String }
 }
 </script>
 
