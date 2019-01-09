@@ -138,11 +138,11 @@ export default {
       steptime22: sun(new Date()),
       steptime3: dateFormat(new Date(), 'YYYY.MM'),
       heartday: [
-        { x: '00:00', y: null },
-        { x: '01:03', y: 800 },
-        { x: '01:05', y: 500 },
-        { x: '14:01', y: 800 },
-        { x: '24:00', y: 800 }
+        { x: '00:00', y: null, type: '心率' },
+        { x: '01:03', y: 800, type: '心率' },
+        { x: '01:05', y: 500, type: '心率' },
+        { x: '14:01', y: 800, type: '心率' },
+        { x: '24:00', y: 800, type: '心率' }
       ],
       heartweek: [
         { x: '周一', y: [76, 100] },
@@ -166,21 +166,21 @@ export default {
         { item: '未完成', per: 0.75, perStr: '75%' }
       ],
       stepweek: [
-        { x: '周一', y: 380 },
-        { x: '周二', y: 800 },
-        { x: '周三', y: 800 },
-        { x: '周四', y: 800 },
-        { x: '周五', y: null },
-        { x: '周六', y: 800 },
-        { x: '周日', y: 800 }
+        { x: '周一', y: 380, type: '步数' },
+        { x: '周二', y: 800, type: '步数' },
+        { x: '周三', y: 800, type: '步数' },
+        { x: '周四', y: 800, type: '步数' },
+        { x: '周五', y: null, type: '步数' },
+        { x: '周六', y: 800, type: '步数' },
+        { x: '周日', y: 800, type: '步数' }
       ],
       stepmonth: [
-        { x: 1, y: 380 },
-        { x: 2, y: 800 },
-        { x: 3, y: 1800 },
-        { x: 7, y: 800 },
-        { x: 10, y: null },
-        { x: 31, y: 800 }
+        { x: 1, y: 380, type: '步数' },
+        { x: 2, y: 800, type: '步数' },
+        { x: 3, y: 1800, type: '步数' },
+        { x: 7, y: 800, type: '步数' },
+        { x: 10, y: null, type: '步数' },
+        { x: 31, y: 800, type: '步数' }
       ],
       pressurelv: [
         { txt: '正常血压', val2: '<=140', val1: '<=90' },
@@ -220,6 +220,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartDay', paramday).then(res => {
         if (res.retcode === '0000') {
           this.heartday = res.body
+          for(let i in this.heartday) this.heartday[i].type = '心率'
           this.$refs.heart1.chart.changeData(this.heartday)
         }
       })
@@ -264,6 +265,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartDay', paramday).then(res => {
         if (res.retcode === '0000') {
           this.heartday = res.body
+          for(let i in this.heartday) this.heartday[i].type = '心率'
           this.$refs.heart1.chart.changeData(this.heartday)
         }
       })
@@ -433,6 +435,7 @@ export default {
     this.ajaxform('/chronic/cbScreenData/heartDay', paramday).then(res => {
       if (res.retcode === '0000') {
         this.heartday = res.body
+        for(let i in this.heartday) this.heartday[i].type = '心率'
         this.$refs.heart1.chart.changeData(this.heartday)
       }
     })

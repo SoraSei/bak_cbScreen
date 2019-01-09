@@ -25,8 +25,9 @@ export default {
       line: { lineWidth: 2, stroke: this.colors[1] },
       label: { offset: 15, textStyle: { fontSize: 12, fill: this.colors[0] } }
     })
-    this.chart.line().position('x*y').color(this.colors[2]).size(1)
-    this.chart.point().position('x*y').color(this.colors[2]).size(3).shape('circle')
+    this.chart.tooltip({})
+    this.chart.line().position('x*y').color('type', this.colors[2]).size(1)
+    this.chart.point().position('x*y').color('type', this.colors[2]).size(3).shape('circle')
     this.chart.render()
   }
 }
