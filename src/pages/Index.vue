@@ -414,12 +414,32 @@ export default {
       }, 10000)
     }
   },
-  beforeDestory () {
+  beforeDestroy () {
     clearInterval(this.timer)
   },
   watch: {
-    dialog1: {},
-    dialog2: {}
+    dialog1: {
+      handler (newVal) {
+        if (newVal === true) {
+          clearInterval(this.timer)
+        } else if (newVal === false) {
+          this.timer = setInterval(function () {
+            location.reload()
+          }, 10000)
+        }
+      }
+    },
+    dialog2: {
+      handler (newVal) {
+        if (newVal === true) {
+          clearInterval(this.timer)
+        } else if (newVal === false) {
+          this.timer = setInterval(function () {
+            location.reload()
+          }, 10000)
+        }
+      }
+    }
   }
 }
 </script>
