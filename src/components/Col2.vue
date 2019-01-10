@@ -24,7 +24,7 @@ export default {
       line: { lineWidth: 2, stroke: this.colors[1] },
       label: { offset: 15, textStyle: { fontSize: 12, fill: this.colors[0] } }
     })
-    this.chart.interval().position('x*y').size(10)
+    this.chart.interval().position('x*y').color('type', this.colors[2]).size(10)
     this.chart.render()
   }
 }

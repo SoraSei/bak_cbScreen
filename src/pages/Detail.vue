@@ -145,20 +145,20 @@ export default {
         { x: '24:00', y: 800, type: '心率' }
       ],
       heartweek: [
-        { x: '周一', y: [76, 100] },
-        { x: '周二', y: [56, 108] },
-        { x: '周三', y: [38, 129] },
-        { x: '周四', y: [58, 155] },
-        { x: '周五', y: null },
-        { x: '周六', y: [23, 99] },
-        { x: '周日', y: [18, 56] }
+        { x: '周一', y: [76, 100], type: '心率' },
+        { x: '周二', y: [56, 108], type: '心率' },
+        { x: '周三', y: [38, 129], type: '心率' },
+        { x: '周四', y: [58, 155], type: '心率' },
+        { x: '周五', y: null, type: '心率' },
+        { x: '周六', y: [23, 99], type: '心率' },
+        { x: '周日', y: [18, 56], type: '心率' }
       ],
       heartmonth: [
-        { x: 1, y: [76, 100] },
-        { x: 2, y: [56, 108] },
-        { x: 3, y: [38, 129] },
-        { x: 4, y: [58, 155] },
-        { x: 31, y: [18, 56] }
+        { x: 1, y: [76, 100], type: '心率' },
+        { x: 2, y: [56, 108], type: '心率' },
+        { x: 3, y: [38, 129], type: '心率' },
+        { x: 4, y: [58, 155], type: '心率' },
+        { x: 31, y: [18, 56], type: '心率' }
       ],
       stepday: { now: 6000, total: 7000 },
       stepdayper: [
@@ -236,6 +236,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartWeek', paramweek).then(res => {
         if (res.retcode === '0000') {
           this.heartweek = res.body
+          for(let i in this.heartweek) this.heartweek[i].type = '心率'
           this.$refs.heart2.chart.changeData(this.heartweek)
         }
       })
@@ -247,11 +248,12 @@ export default {
       else this.hearttime3 = (year - 1) + '.12'
       let parammonth = {
         patientId: this.$route.query.patientId,
-        selMonth: this.hearttime3
+        selMonth: dateFormat(this.hearttime3, 'YYYY.MM')
       }
       this.ajaxform('/chronic/cbScreenData/heartMonth', parammonth).then(res => {
         if (res.retcode === '0000') {
           this.heartmonth = res.body
+          for(let i in this.heartmonth) this.heartmonth[i].type = '心率'
           this.$refs.heart3.chart.changeData(this.heartmonth)
         }
       })
@@ -281,6 +283,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartWeek', paramweek).then(res => {
         if (res.retcode === '0000') {
           this.heartweek = res.body
+          for(let i in this.heartweek) this.heartweek[i].type = '心率'
           this.$refs.heart2.chart.changeData(this.heartweek)
         }
       })
@@ -292,11 +295,12 @@ export default {
       else this.hearttime3 = (year + 1) + '.1'
       let parammonth = {
         patientId: this.$route.query.patientId,
-        selMonth: this.hearttime3
+        selMonth: dateFormat(this.hearttime3, 'YYYY.MM')
       }
       this.ajaxform('/chronic/cbScreenData/heartMonth', parammonth).then(res => {
         if (res.retcode === '0000') {
           this.heartmonth = res.body
+          for(let i in this.heartmonth) this.heartmonth[i].type = '心率'
           this.$refs.heart3.chart.changeData(this.heartmonth)
         }
       })
@@ -328,6 +332,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/stepWeek', paramweek).then(res => {
         if (res.retcode === '0000') {
           this.stepweek = res.body
+          for(let i in this.stepweek) this.stepweek[i].type = '步数'
           this.$refs.step2.chart.changeData(this.stepweek)
         }
       })
@@ -339,11 +344,12 @@ export default {
       else this.steptime3 = (year - 1) + '.12'
       let parammonth = {
         patientId: this.$route.query.patientId,
-        selMonth: this.steptime3
+        selMonth: dateFormat(this.steptime3, 'YYYY.MM')
       }
       this.ajaxform('/chronic/cbScreenData/stepMonth', parammonth).then(res => {
         if (res.retcode === '0000') {
           this.stepmonth = res.body
+          for(let i in this.stepmonth) this.stepmonth[i].type = '步数'
           this.$refs.step3.chart.changeData(this.stepmonth)
         }
       })
@@ -375,6 +381,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/stepWeek', paramweek).then(res => {
         if (res.retcode === '0000') {
           this.stepweek = res.body
+          for(let i in this.stepweek) this.stepweek[i].type = '步数'
           this.$refs.step2.chart.changeData(this.stepweek)
         }
       })
@@ -386,11 +393,12 @@ export default {
       else this.steptime3 = (year + 1) + '.1'
       let parammonth = {
         patientId: this.$route.query.patientId,
-        selMonth: this.steptime3
+        selMonth: dateFormat(this.steptime3, 'YYYY.MM')
       }
       this.ajaxform('/chronic/cbScreenData/stepMonth', parammonth).then(res => {
         if (res.retcode === '0000') {
           this.stepmonth = res.body
+          for(let i in this.stepmonth) this.stepmonth[i].type = '步数'
           this.$refs.step3.chart.changeData(this.stepmonth)
         }
       })
@@ -456,12 +464,14 @@ export default {
     this.ajaxform('/chronic/cbScreenData/heartWeek', paramweek).then(res => {
       if (res.retcode === '0000') {
         this.heartweek = res.body
+        for(let i in this.heartweek) this.heartweek[i].type = '心率'
         this.$refs.heart2.chart.changeData(this.heartweek)
       }
     })
     this.ajaxform('/chronic/cbScreenData/stepWeek', paramweek).then(res => {
       if (res.retcode === '0000') {
         this.stepweek = res.body
+        for(let i in this.stepweek) this.stepweek[i].type = '步数'
         this.$refs.step2.chart.changeData(this.stepweek)
       }
     })
@@ -472,12 +482,14 @@ export default {
     this.ajaxform('/chronic/cbScreenData/heartMonth', parammonth).then(res => {
       if (res.retcode === '0000') {
         this.heartmonth = res.body
+        for(let i in this.heartmonth) this.heartmonth[i].type = '心率'
         this.$refs.heart3.chart.changeData(this.heartmonth)
       }
     })
     this.ajaxform('/chronic/cbScreenData/stepMonth', parammonth).then(res => {
       if (res.retcode === '0000') {
         this.stepmonth = res.body
+        for(let i in this.stepmonth) this.stepmonth[i].type = '步数'
         this.$refs.step3.chart.changeData(this.stepmonth)
       }
     })
