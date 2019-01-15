@@ -1,11 +1,7 @@
 <template>
   <div class="pie_01">
     <div class="box_title">{{ name }}</div>
-    <!--<v-chart class="chart" prevent-render @on-render=pie1Chart></v-chart>-->
     <div :id=cid class="chart"></div>
-    <!--<div class="legend">
-      <div v-for="(item, i) in tmp" :key=i><div :class="{ 'color_1': i === 0, 'color_2': i === 1, 'color_3': i === 2 }"></div>{{ item.item }}</div>
-    </div>-->
   </div>
 </template>
 

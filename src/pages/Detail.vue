@@ -220,7 +220,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartDay', paramday).then(res => {
         if (res.retcode === '0000') {
           this.heartday = res.body
-          for(let i in this.heartday) this.heartday[i].type = '心率'
+          for (let i in this.heartday) this.heartday[i].type = '心率'
           this.$refs.heart1.chart.changeData(this.heartday)
         }
       })
@@ -236,7 +236,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartWeek', paramweek).then(res => {
         if (res.retcode === '0000') {
           this.heartweek = res.body
-          for(let i in this.heartweek) this.heartweek[i].type = '心率'
+          for (let i in this.heartweek) this.heartweek[i].type = '心率'
           this.$refs.heart2.chart.changeData(this.heartweek)
         }
       })
@@ -253,7 +253,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartMonth', parammonth).then(res => {
         if (res.retcode === '0000') {
           this.heartmonth = res.body
-          for(let i in this.heartmonth) this.heartmonth[i].type = '心率'
+          for (let i in this.heartmonth) this.heartmonth[i].type = '心率'
           this.$refs.heart3.chart.changeData(this.heartmonth)
         }
       })
@@ -267,7 +267,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartDay', paramday).then(res => {
         if (res.retcode === '0000') {
           this.heartday = res.body
-          for(let i in this.heartday) this.heartday[i].type = '心率'
+          for (let i in this.heartday) this.heartday[i].type = '心率'
           this.$refs.heart1.chart.changeData(this.heartday)
         }
       })
@@ -283,7 +283,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartWeek', paramweek).then(res => {
         if (res.retcode === '0000') {
           this.heartweek = res.body
-          for(let i in this.heartweek) this.heartweek[i].type = '心率'
+          for (let i in this.heartweek) this.heartweek[i].type = '心率'
           this.$refs.heart2.chart.changeData(this.heartweek)
         }
       })
@@ -300,7 +300,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/heartMonth', parammonth).then(res => {
         if (res.retcode === '0000') {
           this.heartmonth = res.body
-          for(let i in this.heartmonth) this.heartmonth[i].type = '心率'
+          for (let i in this.heartmonth) this.heartmonth[i].type = '心率'
           this.$refs.heart3.chart.changeData(this.heartmonth)
         }
       })
@@ -332,7 +332,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/stepWeek', paramweek).then(res => {
         if (res.retcode === '0000') {
           this.stepweek = res.body
-          for(let i in this.stepweek) this.stepweek[i].type = '步数'
+          for (let i in this.stepweek) this.stepweek[i].type = '步数'
           this.$refs.step2.chart.changeData(this.stepweek)
         }
       })
@@ -349,7 +349,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/stepMonth', parammonth).then(res => {
         if (res.retcode === '0000') {
           this.stepmonth = res.body
-          for(let i in this.stepmonth) this.stepmonth[i].type = '步数'
+          for (let i in this.stepmonth) this.stepmonth[i].type = '步数'
           this.$refs.step3.chart.changeData(this.stepmonth)
         }
       })
@@ -381,7 +381,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/stepWeek', paramweek).then(res => {
         if (res.retcode === '0000') {
           this.stepweek = res.body
-          for(let i in this.stepweek) this.stepweek[i].type = '步数'
+          for (let i in this.stepweek) this.stepweek[i].type = '步数'
           this.$refs.step2.chart.changeData(this.stepweek)
         }
       })
@@ -398,7 +398,7 @@ export default {
       this.ajaxform('/chronic/cbScreenData/stepMonth', parammonth).then(res => {
         if (res.retcode === '0000') {
           this.stepmonth = res.body
-          for(let i in this.stepmonth) this.stepmonth[i].type = '步数'
+          for (let i in this.stepmonth) this.stepmonth[i].type = '步数'
           this.$refs.step3.chart.changeData(this.stepmonth)
         }
       })
@@ -443,7 +443,7 @@ export default {
     this.ajaxform('/chronic/cbScreenData/heartDay', paramday).then(res => {
       if (res.retcode === '0000') {
         this.heartday = res.body
-        for(let i in this.heartday) this.heartday[i].type = '心率'
+        for (let i in this.heartday) this.heartday[i].type = '心率'
         this.$refs.heart1.chart.changeData(this.heartday)
       }
     })
@@ -464,14 +464,14 @@ export default {
     this.ajaxform('/chronic/cbScreenData/heartWeek', paramweek).then(res => {
       if (res.retcode === '0000') {
         this.heartweek = res.body
-        for(let i in this.heartweek) this.heartweek[i].type = '心率'
+        for (let i in this.heartweek) this.heartweek[i].type = '心率'
         this.$refs.heart2.chart.changeData(this.heartweek)
       }
     })
     this.ajaxform('/chronic/cbScreenData/stepWeek', paramweek).then(res => {
       if (res.retcode === '0000') {
         this.stepweek = res.body
-        for(let i in this.stepweek) this.stepweek[i].type = '步数'
+        for (let i in this.stepweek) this.stepweek[i].type = '步数'
         this.$refs.step2.chart.changeData(this.stepweek)
       }
     })
@@ -482,14 +482,14 @@ export default {
     this.ajaxform('/chronic/cbScreenData/heartMonth', parammonth).then(res => {
       if (res.retcode === '0000') {
         this.heartmonth = res.body
-        for(let i in this.heartmonth) this.heartmonth[i].type = '心率'
+        for (let i in this.heartmonth) this.heartmonth[i].type = '心率'
         this.$refs.heart3.chart.changeData(this.heartmonth)
       }
     })
     this.ajaxform('/chronic/cbScreenData/stepMonth', parammonth).then(res => {
       if (res.retcode === '0000') {
         this.stepmonth = res.body
-        for(let i in this.stepmonth) this.stepmonth[i].type = '步数'
+        for (let i in this.stepmonth) this.stepmonth[i].type = '步数'
         this.$refs.step3.chart.changeData(this.stepmonth)
       }
     })

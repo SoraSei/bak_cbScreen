@@ -1,7 +1,6 @@
 <template>
   <div class="line_01">
     <div class="box_title">{{ name }}</div>
-    <!--<v-chart class="chart" :appendPadding="[ 30, 80 ]" prevent-render @on-render=line1Chart></v-chart>-->
     <div :id=cid class="chart"></div>
     <div class="after">{{ date }}</div>
   </div>
@@ -22,7 +21,6 @@ export default {
       line: { lineWidth: 3, stroke: this.colors[this.colors.length - 1] },
       grid: { lineStyle: { stroke: this.colors[this.colors.length - 1], lineWidth: 1, lineDash: [0, 0] } },
       label: { offset: 15, textStyle: { fontSize: 15, fill: '#fff' }, formatter: val => { return val / 1000 + 'k' } }
-      // label: { offset: 15, textStyle: { fontSize: 12, fill: '#fff' } }
     })
     this.chart.axis('x', {
       line: { lineWidth: 3, stroke: this.colors[this.colors.length - 1] },
@@ -36,7 +34,6 @@ export default {
     this.chart.guide().text({
       position: ['min', 'max'],
       content: '步数（k=1000）',
-      // content: '步数',
       style: { fill: '#fff', fontSize: 12 },
       offsetX: -50,
       offsetY: -20

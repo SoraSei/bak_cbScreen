@@ -21,7 +21,6 @@ export default {
     this.chart.tooltip({ showTitle: false })
     this.chart.intervalStack().position('per').color('item', this.colors)
       .tooltip(false)
-      // .tooltip('item*perStr', (item, perStr) => { return { name: item, value: perStr } })
     this.chart.render()
   }
 }

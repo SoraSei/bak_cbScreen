@@ -1,7 +1,6 @@
 <template>
   <div class="col_01">
     <div class="box_title">{{ name }}</div>
-    <!--<v-chart class="chart" :appendPadding="[ 30, 80 ]" prevent-render @on-render=col1Chart></v-chart>-->
     <div :id=cid class="chart"></div>
     <div class="after">{{ date }}</div>
   </div>

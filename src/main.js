@@ -8,7 +8,6 @@ import { sync } from 'vuex-router-sync'
 import { TransferDom, ToastPlugin, XDialog, VChart } from 'vux'
 import App from './App'
 import Index from './pages/Index'
-import Index0 from './pages/Index_0'
 import List from './pages/List'
 import Detail from './pages/Detail'
 
@@ -18,9 +17,6 @@ Vue.use(ToastPlugin)
 const routes = [{
   path: '/',
   component: Index
-}, {
-  path: '/0',
-  component: Index0
 }, {
   path: '/list',
   component: List
@@ -58,12 +54,6 @@ ajax.interceptors.response.use(
           location.replace(response.data.body)
           break
         case '0000':
-          /*
-           Vue.$vux.toast.show({
-           type: 'success',
-           text: '操作成功！'
-           })
-           */
           break
         default :
           Vue.$vux.toast.text(response.data.errMsg, 'middle')

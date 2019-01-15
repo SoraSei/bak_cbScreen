@@ -280,7 +280,6 @@ export default {
     sError (e) { console.log('error: ' + e) },
     sMessage (evt) {
       console.log('server says: ' + evt.data)
-      // document.getElementById('serverMsg').innerHTML = evt.data
       this.$refs.sosnew.src = this.btnimg2
       this.soswait += 1
       this.title1[3].val += 1
@@ -308,18 +307,6 @@ export default {
         this.socket.onclose = this.sClose
       }
     })
-    /*
-    try {
-      this.socket = new WebSocket('ws://192.168.1.103:8331/ws')
-    } catch (e) {
-      console.log('error')
-      return
-    }
-    this.socket.onopen = this.sOpen
-    this.socket.onerror = this.sError
-    this.socket.onmessage = this.sMessage
-    this.socket.onclose = this.sClose
-    */
     this.ajaxform('/chronic/cbScreenData/cbmonitorData').then(res => {
       if (res.retcode === '0000') {
         console.log('实时监测')
