@@ -39,7 +39,6 @@ export default {
     this.chart.intervalStack().position('per').color('item', this.colors).style({ lineWidth: 3, stroke: '#fff' })
       .label('perStr', { offset: -80, autoRotate: false, textStyle: { fill: '#fff', fontSize: 50, fontWeight: 'bold', textAlign: 'center' } })
       .tooltip(false)
-      // .tooltip('item*perStr', (item, perStr) => { return { name: item, value: perStr } })
     this.chart.render()
   }
 }
