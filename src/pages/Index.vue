@@ -290,7 +290,93 @@ export default {
     },
     sClose (e) { console.log('connect closed:' + e.code) },
     Send () { this.socket.send('send message!') },
-    Close () { this.socket.close() }
+    Close () { this.socket.close() },
+    webfresh () {
+      this.ajaxform('/chronic/cbScreenData/cbmonitorData').then(res => {
+        if (res.retcode === '0000') {
+          console.log('实时监测')
+          this.list1 = []
+          this.list1 = res.body
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/selectSOSDataCount').then(res => {
+        if (res.retcode === '0000') {
+          console.log('总帮助人次')
+          this.soswait = res.body.unhandleCount
+          if (this.soswait !== 0) this.$refs.sosnew.src = this.btnimg2
+          else this.$refs.sosnew.src = this.btnimg1
+          this.title1[3].val = res.body.handledCount
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/totalMonitorTimes').then(res => {
+        if (res.retcode === '0000') {
+          console.log('监测总次数')
+          this.title1[2].val = res.body
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/selectPatientCount').then(res => {
+        if (res.retcode === '0000') {
+          console.log('管理总人数')
+          this.title1[0].val = res.body
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/selectPatientAgeStat').then(res => {
+        if (res.retcode === '0000') {
+          console.log('年龄分布图')
+          this.pie1 = []
+          this.pie1 = res.body
+          this.$refs.pie1.chart.changeData(piePlus(this.pie1))
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/selectPatientSexStat').then(res => {
+        if (res.retcode === '0000') {
+          console.log('性别分布图')
+          this.pie2 = []
+          this.pie2 = res.body
+          this.$refs.pie2.chart.changeData(piePlus(this.pie2))
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/selectOnlineStat').then(res => {
+        if (res.retcode === '0000') {
+          console.log('在线人数图')
+          this.pie3 = []
+          this.pie3 = res.body
+          this.$refs.pie3.chart.changeData(piePlus(this.pie3))
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/bloodPressureW').then(res => {
+        if (res.retcode === '0000') {
+          console.log('血压')
+          this.line1 = []
+          this.line1 = res.body
+          this.$refs.line1.chart.changeData(this.line1)
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/bloodSugarW').then(res => {
+        if (res.retcode === '0000') {
+          console.log('血糖')
+          this.line2 = []
+          this.line2 = res.body
+          this.$refs.line2.chart.changeData(this.line2)
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/heartReateW').then(res => {
+        if (res.retcode === '0000') {
+          console.log('心率')
+          this.line3 = []
+          this.line3 = res.body
+          this.$refs.line3.chart.changeData(this.line3)
+        }
+      })
+      this.ajaxform('/chronic/cbScreenData/sportStepW').then(res => {
+        if (res.retcode === '0000') {
+          console.log('运动')
+          this.line4 = []
+          this.line4 = res.body
+          this.$refs.line4.chart.changeData(this.line4)
+        }
+      })
+    }
   },
   created () {
     this.ajaxform('/chronic/cbScreenData/getNettyWebSocketServer').then(res => {
@@ -396,8 +482,10 @@ export default {
     if (this.timer) {
       clearInterval(this.timer)
     } else {
+      let that = this
       this.timer = setInterval(function () {
-        location.reload()
+        // location.reload()
+        that.webfresh()
       }, 10000)
     }
   },
@@ -410,8 +498,10 @@ export default {
         if (newVal === true) {
           clearInterval(this.timer)
         } else if (newVal === false) {
+          let that = this
           this.timer = setInterval(function () {
-            location.reload()
+            // location.reload()
+            that.webfresh()
           }, 10000)
         }
       }
@@ -421,8 +511,10 @@ export default {
         if (newVal === true) {
           clearInterval(this.timer)
         } else if (newVal === false) {
+          let that = this
           this.timer = setInterval(function () {
-            location.reload()
+            // location.reload()
+            that.webfresh()
           }, 10000)
         }
       }
